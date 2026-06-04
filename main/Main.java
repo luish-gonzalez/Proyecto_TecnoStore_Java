@@ -6,6 +6,9 @@ import util.Validador;
 import modelo.Cliente;
 import servicio.GestorClientes;
 import servicio.GestorCelulares;
+import modelo.ItemVenta;
+import modelo.Venta;
+import servicio.GestorVentas;
 
 
 public class Main {
@@ -42,9 +45,20 @@ public class Main {
         //gestorCelulares.eliminarCelular(1);
         System.out.println("Inventario después de eliminar:");
         gestorCelulares.listarCelulares();
-        gestorCelulares.actualizarPrecioYStock(1, 1800000, 15);
+        //gestorCelulares.actualizarPrecioYStock(1, 1800000, 15);
         System.out.println("Inventario actualizado:");
-gestorCelulares.listarCelulares();
+        gestorCelulares.listarCelulares();
+        
+        GestorVentas gestorVentas = new GestorVentas();
+        Venta venta = new Venta(1, cliente1);
+        ItemVenta item = new ItemVenta(celular1, 1);
+        venta.agregarItem(item);
+        gestorVentas.registrarVenta(venta);
+        gestorVentas.listarVentas();
+        
+        
+        
+        
         
 
     }
