@@ -32,6 +32,20 @@ public class Main {
         }
         
         
-//
+        GestorCelulares gestorCelulares = new GestorCelulares();
+        Celular celular1 = new Celular(1, "Samsung", "A55", 1500000, 10, "Android", CategoriaGama.MEDIA);
+        Celular celular2 = new Celular(2, "Xiaomi", "Redmi Note 13", 1200000, 8, "Android", CategoriaGama.MEDIA);
+        
+        gestorCelulares.registrarCelular(celular1);
+        gestorCelulares.registrarCelular(celular2);
+        gestorCelulares.listarCelulares();
+        //gestorCelulares.eliminarCelular(1);
+        System.out.println("Inventario después de eliminar:");
+        gestorCelulares.listarCelulares();
+        gestorCelulares.actualizarPrecioYStock(1, 1800000, 15);
+        System.out.println("Inventario actualizado:");
+gestorCelulares.listarCelulares();
+        
+
     }
 }

@@ -15,6 +15,9 @@ public class GestorCelulares {
     private ArrayList<Celular> celulares = new ArrayList<>();
     
     public void registrarCelular(Celular celular) {
+        if (buscarPorId(celular.getId()) != null) {
+    throw new IllegalArgumentException("El ID del celular ya existe");
+    }
     celulares.add(celular);
     }
     
@@ -25,6 +28,28 @@ public class GestorCelulares {
             }
         }
         return null;
+    }
+    
+    public void listarCelulares() {
+        for (Celular celular : celulares) {
+        System.out.println(celular);
+        }
+    }
+    public void eliminarCelular(int id) {
+        Celular celular = buscarPorId(id);
+        if (celular == null) {
+    throw new IllegalArgumentException("No existe un celular con ese ID");
+        }
+        celulares.remove(celular);
+    }
+    
+    public void actualizarPrecioYStock(int id, double nuevoPrecio, int nuevoStock) {
+        Celular celular = buscarPorId(id);
+        if (celular == null) {
+            throw new IllegalArgumentException("No existe un celular con ese ID");
+        }
+        celular.setPrecio(nuevoPrecio);
+        celular.setStock(nuevoStock);
     }
     
 }
