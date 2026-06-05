@@ -9,6 +9,7 @@ import servicio.GestorCelulares;
 import modelo.ItemVenta;
 import modelo.Venta;
 import servicio.GestorVentas;
+import util.ReporteUtils;
 
 
 public class Main {
@@ -51,10 +52,18 @@ public class Main {
         
         GestorVentas gestorVentas = new GestorVentas();
         Venta venta = new Venta(1, cliente1);
-        ItemVenta item = new ItemVenta(celular1, 1);
+        ItemVenta item = new ItemVenta(celular1, 7);
+        //ItemVenta item = new ItemVenta(celular1, 20);
         venta.agregarItem(item);
         gestorVentas.registrarVenta(venta);
         gestorVentas.listarVentas();
+        Celular celular3 = new Celular(3, "Motorola", "G54", 900000, 3, "Android", CategoriaGama.BAJA);
+        gestorCelulares.registrarCelular(celular3);
+        System.out.println("Celulares con stock bajo:");
+        gestorCelulares.mostrarStockBajo();
+        ReporteUtils.mostrarStockBajo(gestorCelulares.getCelulares());
+        System.out.println("Top 3 celulares más vendidos:");
+        ReporteUtils.mostrarTop3CelularesMasVendidos(gestorVentas.getVentas());
         
         
         

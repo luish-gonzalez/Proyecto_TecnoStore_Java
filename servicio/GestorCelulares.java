@@ -1,26 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package servicio;
 
 import modelo.Celular;
 import java.util.ArrayList;
 
-/**
- *
- * @author PC_WIN11
- */
+
 public class GestorCelulares {
     private ArrayList<Celular> celulares = new ArrayList<>();
     
+    public ArrayList<Celular> getCelulares() {
+        return celulares;
+    }
+
     public void registrarCelular(Celular celular) {
         if (buscarPorId(celular.getId()) != null) {
-    throw new IllegalArgumentException("El ID del celular ya existe");
+            throw new IllegalArgumentException("El ID del celular ya existe");
+        }
+            celulares.add(celular);
     }
-    celulares.add(celular);
-    }
-    
+            
     public Celular buscarPorId(int id) {
         for (Celular celular : celulares) {
             if (celular.getId() == id) {
@@ -35,6 +32,15 @@ public class GestorCelulares {
         System.out.println(celular);
         }
     }
+    
+    public void mostrarStockBajo() {
+        for (Celular celular : celulares) {
+            if (celular.getStock() < 5) {
+                System.out.println(celular);
+                }
+        }
+    }
+    
     public void eliminarCelular(int id) {
         Celular celular = buscarPorId(id);
         if (celular == null) {
