@@ -1,0 +1,3 @@
+REPORTE DE VENTAS - TecnoStore
+------------------------------
+Venta #1 | Cliente: Ana Pérez | Fecha: 2026-06-05 | Total con IVA: $1.2495E7
